@@ -2,7 +2,7 @@ on:
   - pull_request
   - push
 
-name: build
+name: benchmark
 
 jobs:
   tests:
@@ -20,6 +20,7 @@ jobs:
           - ubuntu-latest
 
         php:
+          - "7.4"
           - "8.0"
 
     steps:
