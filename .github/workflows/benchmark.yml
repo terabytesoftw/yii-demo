@@ -55,4 +55,4 @@ jobs:
       - name: Run apache benchmarch
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
-          ab -n 100 -c 1 http://127.0.0.1:8080
+          ab -n 100 -c 1 http://127.0.0.1:8080/blog
