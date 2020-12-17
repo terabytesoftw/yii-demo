@@ -38,10 +38,6 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
-      - name: Determine composer cache directory on Windows
-        if: matrix.os == 'windows-latest'
-        run: echo "COMPOSER_CACHE_DIR=~\AppData\Local\Composer" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
       - name: Cache dependencies installed with composer
         uses: actions/cache@v2
         with:
@@ -59,4 +55,4 @@ jobs:
       - name: Run apache benchmarch
         run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
-          sudo ab -n 1000 -c 1 http://127.0.0.1:8080/
+          ab -n 100 -c 1 http://127.0.0.1:8080/
