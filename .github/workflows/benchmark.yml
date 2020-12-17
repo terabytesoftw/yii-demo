@@ -58,6 +58,6 @@ jobs:
         run: sudo apt-get install apache2-utils
 
       - name: Run apache benchmarch
-        run:|
+        run: |
           php -S 127.0.0.1:8080 -t public > ./runtime/yii.log 2>&1 &
           ab -n 1000 -c 1 http://127.0.0.1:8080/
